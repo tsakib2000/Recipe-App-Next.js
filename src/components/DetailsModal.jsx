@@ -7,9 +7,10 @@ const DetailsModal =async({id}) => {
     const data= await response.json()
     const recipeData=data.meals[0]
     return (
-        <DialogContent>
+        <DialogContent  className="max-h-[80vh] overflow-y-auto">
+     
       <div className=" bg-gray-50 py-8">
-              <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+              <div className=" mx-auto rounded-lg overflow-hidden">
                 {/* Recipe Image */}
                 {recipeData.strMealThumb ? (
                   <Image
