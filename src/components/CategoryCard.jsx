@@ -1,13 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button"
 
+import {
+  Card,
+  CardContent,
+ 
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 const CategoryCard = ({meal}) => {
-console.log(meal);
+
     return (
-        <div className=" rounded-lg flex flex-col justify-between border p-5">
-        
-        <div className="relative h-48">
+      <Card className="flex flex-col justify-between">
+      <CardHeader>
+               
+      <div className="relative h-48">
           <Image
             src={meal.strCategoryThumb}
             alt={meal.strCategory}
@@ -16,21 +26,28 @@ console.log(meal);
             className="rounded-t-lg"
           />
         </div>
-  
-     
-        <div className="">
-          <h2 className="text-2xl font-bold mb-2 text-gray-800">
-            {meal.strCategory}
-          </h2>
-          <p className="text-gray-600 text-sm line-clamp-3">
-            {meal.strCategoryDescription}
-          </p>
-          <Link href={`/category/${meal.strCategory}`} className="mt-4 bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-300">
-            Explore Recipes
-          </Link>
-        </div>
-      </div>
+        <CardTitle>{meal.strCategory}</CardTitle>
+       
+      </CardHeader>
+      <CardContent>
+        <p>{meal.strCategoryDescription.slice(0,200)}...</p>
+      </CardContent>
+      <CardFooter>
+      <Link className="w-full" href={`/meals/${meal.strCategory}`}>
+      <Button className="w-full">
+   Explore 
+        </Button>
+        </Link>
+      </CardFooter>
+    </Card>
+    
     );
 };
 
 export default CategoryCard;
+{/* <h2 className="text-2xl font-bold mb-2 text-gray-800">
+
+</h2>
+<p className="text-gray-600 text-sm line-clamp-3">
+
+</p> */}

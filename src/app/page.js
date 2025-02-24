@@ -10,7 +10,7 @@ export default function Home() {
   return (
 <div className="">
 <Banner/>
-<div className="container mx-auto">
+<div className="w-11/12 mx-auto">
 <BestDish/>
 <FeaturedMeals/>
 </div>
